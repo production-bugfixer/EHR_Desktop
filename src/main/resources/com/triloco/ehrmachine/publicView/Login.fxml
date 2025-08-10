@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane prefWidth="600.0" prefHeight="400.0"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.triloco.ehrmachine.newpackage.controller.publicScreen.LoginController"
+           stylesheets="@/com/triloco/ehrmachine/styles/login.css">
+
+    <VBox alignment="CENTER" spacing="15" prefWidth="400" maxWidth="400">
+        <Label text="Doctor's Portal" styleClass="title"/>
+        <Label text="Access your medical dashboard" styleClass="subtitle"/>
+
+        <VBox spacing="10" alignment="CENTER_LEFT" maxWidth="300">
+            <Label text="Email" styleClass="field-label"/>
+            <TextField fx:id="emailField" promptText="Enter your email" maxWidth="Infinity"/>
+
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="Enter your password" maxWidth="Infinity"/>
+
+            <Button fx:id="loginButton" text="Sign In" styleClass="login-button" maxWidth="Infinity"/>
+
+            <Hyperlink text="Forgot your password?" fx:id="forgotPasswordLink"/>
+        </VBox>
+    </VBox>
+</StackPane>

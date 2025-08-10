@@ -1,0 +1,7 @@
+com\triloco\ehrmachine\newpackage\controller\publicScreen\LoginController.class
+com\triloco\ehrmachine\applicationManager\SessionManager.class
+com\triloco\ehrmachine\applicationManager\model\User.class
+com\triloco\ehrmachine\applicationManager\CacheManager.class
+com\triloco\ehrmachine\App.class
+com\triloco\ehrmachine\applicationManager\ApiManager.class
+com\triloco\ehrmachine\applicationManager\ScreenManager.class
