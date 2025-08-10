@@ -9,8 +9,19 @@ public class SessionManager {
     private static User currentUser;
 
     static {
-        loadSessionFromFile(); // Called once at class load
+    File file = new File(SESSION_FILE);
+    if (file.exists()) {
+        loadSessionFromFile();
+    } else {
+        // Create empty session file with null user
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(null);  // write null user object
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        currentUser = null;
     }
+}
 
     public static void login(User user, boolean rememberMe) {
         currentUser = user;
