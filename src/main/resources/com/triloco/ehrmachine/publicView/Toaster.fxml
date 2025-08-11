@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:id="rootPane"
+           fx:controller="com.triloco.ehrmachine.newpackage.controller.publicScreen.ToastController"
+           style="-fx-background-color: rgba(0,0,0,0.75); -fx-background-radius: 5; -fx-padding: 10;"
+           prefWidth="300" prefHeight="50" opacity="0">
+
+    <Label fx:id="messageLabel" textFill="white" style="-fx-font-size: 14px;" />
+</StackPane>

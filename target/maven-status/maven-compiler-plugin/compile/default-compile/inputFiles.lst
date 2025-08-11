@@ -1,7 +1,13 @@
-C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\SessionManager.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\newpackage\validation\LoginValidation.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\newpackage\service\LoginService.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\PropertiesLoader.java
 C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\ApiManager.java
 C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\ScreenManager.java
-C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\model\User.java
 C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\CacheManager.java
 C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\App.java
 C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\newpackage\controller\publicScreen\LoginController.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\SessionManager.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\model\User.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\newpackage\controller\publicScreen\ToastController.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\model\ApiResponse.java
+C:\Users\anime\OneDrive\Documents\NetBeansProjects\EHRMachine\src\main\java\com\triloco\ehrmachine\applicationManager\utils\ObjectEncryptor.java

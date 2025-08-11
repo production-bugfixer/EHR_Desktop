@@ -6,6 +6,7 @@
 
 <StackPane prefWidth="600.0" prefHeight="400.0"
            xmlns:fx="http://javafx.com/fxml"
+           fx:id="rootPane"
            fx:controller="com.triloco.ehrmachine.newpackage.controller.publicScreen.LoginController"
            stylesheets="@/com/triloco/ehrmachine/styles/login.css">
 

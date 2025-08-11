@@ -1,0 +1,16 @@
+.toast {
+    -fx-background-radius: 5;
+    -fx-padding: 10px 20px;
+}
+
+.toast.info {
+    -fx-background-color: #3498db; /* blue */
+}
+
+.toast.success {
+    -fx-background-color: #27ae60; /* green */
+}
+
+.toast.warning {
+    -fx-background-color: #f39c12; /* orange */
+}
