@@ -7,7 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.function.Supplier;
 
@@ -47,8 +50,8 @@ public class ApiManager {
     }
 
     public String get(String path) throws Exception {
-        //String fullUrl = baseUrl + path;
- String fullUrl = "http://147.79.66.20:9090/authenticate/auth/v1/doctor";
+        String fullUrl = baseUrl + path;
+
         Supplier<String> supplier = Retry.decorateSupplier(retry, () -> {
             HttpHeaders headers = new HttpHeaders();
             if (authToken != null && !authToken.isEmpty()) {
@@ -56,22 +59,17 @@ public class ApiManager {
             }
             HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-            // Log request
             logger.info("GET Request: {}", fullUrl);
             logger.debug("Request Headers: {}", headers);
 
             try {
                 ResponseEntity<String> response = restTemplate.exchange(fullUrl, HttpMethod.GET, entity, String.class);
-
-                // Log response
                 logger.info("GET Response Status: {}", response.getStatusCode());
                 logger.debug("GET Response Body: {}", response.getBody());
-
                 return response.getBody();
             } catch (HttpStatusCodeException ex) {
-                logger.error("GET Request failed with status: {}", ex.getStatusCode());
-                logger.error("Response Body: {}", ex.getResponseBodyAsString());
-                throw ex;
+                handleHttpException("GET", fullUrl, ex);
+                throw new Exception("GET failed: " + extractErrorBody(ex), ex);
             }
         });
 
@@ -79,38 +77,34 @@ public class ApiManager {
             return supplier.get();
         } catch (Exception ex) {
             logger.error("GET request failed after retries", ex);
-            throw new Exception("GET request failed after retries", ex);
+            throw ex;
         }
     }
 
     public <T> String post(String path, T requestBody) throws Exception {
-        //String fullUrl = baseUrl + path;
- String fullUrl = "http://147.79.66.20:9090/authenticate/auth/v1/doctor";
+        String fullUrl = baseUrl + path;
+
         Supplier<String> supplier = Retry.decorateSupplier(retry, () -> {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             if (authToken != null && !authToken.isEmpty()) {
                 headers.setBearerAuth(authToken);
             }
+
             HttpEntity<T> entity = new HttpEntity<>(requestBody, headers);
 
-            // Log request
             logger.info("POST Request: {}", fullUrl);
             logger.debug("Request Headers: {}", headers);
             logger.debug("Request Body: {}", requestBody);
 
             try {
                 ResponseEntity<String> response = restTemplate.postForEntity(fullUrl, entity, String.class);
-
-                // Log response
                 logger.info("POST Response Status: {}", response.getStatusCode());
                 logger.debug("POST Response Body: {}", response.getBody());
-
                 return response.getBody();
             } catch (HttpStatusCodeException ex) {
-                logger.error("POST Request failed with status: {}", ex.getStatusCode());
-                logger.error("Response Body: {}", ex.getResponseBodyAsString());
-                throw ex;
+                handleHttpException("POST", fullUrl, ex);
+                throw new Exception("POST failed: " + extractErrorBody(ex), ex);
             }
         });
 
@@ -118,9 +112,52 @@ public class ApiManager {
             return supplier.get();
         } catch (Exception ex) {
             logger.error("POST request failed after retries", ex);
-            throw new Exception("POST request failed after retries", ex);
+            throw ex;
+        }
+    }
+
+    // ---------- Helper Methods ----------
+
+    private void handleHttpException(String method, String url, HttpStatusCodeException ex) {
+        logger.error("{} Request to {} failed with status: {}", method, url, ex.getStatusCode());
+        logger.error("Response Headers: {}", ex.getResponseHeaders());
+
+        // Try to decode the response body
+        String errorBody = "";
+        try {
+            byte[] rawBytes = ex.getResponseBodyAsByteArray();
+            if (rawBytes != null && rawBytes.length > 0) {
+                errorBody = new String(rawBytes, StandardCharsets.UTF_8);
+                logger.error("Decoded Error Body: {}", errorBody);
+            } else {
+                logger.warn("Error response body is empty");
+            }
+        } catch (Exception decodeEx) {
+            logger.error("Failed to decode error body", decodeEx);
+        }
+
+        // Optional: Try parsing JSON
+        try {
+            if (errorBody != null && !errorBody.isEmpty()) {
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode root = mapper.readTree(errorBody);
+                String dataField = root.path("data").asText(null);
+                String language = root.path("language").asText(null);
+                logger.error("Parsed 'data': {}", dataField);
+                logger.error("Parsed 'language': {}", language);
+            }
+        } catch (Exception parseEx) {
+            logger.warn("Error body is not valid JSON or missing fields", parseEx);
+        }
+    }
+
+    private String extractErrorBody(HttpStatusCodeException ex) {
+        try {
+            byte[] raw = ex.getResponseBodyAsByteArray();
+            return (raw != null && raw.length > 0) ? new String(raw, StandardCharsets.UTF_8) : "";
+        } catch (Exception e) {
+            logger.error("Failed to extract error body", e);
+            return "";
         }
     }
 }
-
-   

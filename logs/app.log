@@ -104,3 +104,84 @@ org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 Unauth
 2025-08-11 19:30:53 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Response Status: 200 OK
 2025-08-11 19:32:35 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
 2025-08-11 19:32:35 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Response Status: 200 OK
+2025-08-11 20:24:25 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 20:24:26 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Response Status: 200 OK
+2025-08-11 22:33:41 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:33:42 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:33:42 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 
+2025-08-11 22:33:43 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:33:43 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:33:43 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 
+2025-08-11 22:33:43 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:33:43 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:33:43 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 
+2025-08-11 22:33:43 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST request failed after retries
+org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 Unauthorized: [no body]
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:105) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:168) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:122) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:825) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:783) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:474) ~[spring-web-5.3.30.jar:5.3.30]
+	at com.triloco.ehrmachine.applicationManager.ApiManager.lambda$post$1(ApiManager.java:103) ~[classes/:?]
+	at io.github.resilience4j.retry.Retry.lambda$decorateSupplier$2(Retry.java:213) ~[resilience4j-retry-1.7.1.jar:1.7.1]
+	at com.triloco.ehrmachine.applicationManager.ApiManager.post(ApiManager.java:118) ~[classes/:?]
+	at com.triloco.ehrmachine.newpackage.service.LoginService.login(LoginService.java:41) ~[classes/:?]
+	at com.triloco.ehrmachine.newpackage.controller.publicScreen.LoginController.login(LoginController.java:59) ~[classes/:?]
+	at com.triloco.ehrmachine.newpackage.controller.publicScreen.LoginController.lambda$initialize$2(LoginController.java:31) ~[classes/:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-13-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-13-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8890) ~[javafx-graphics-13-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-13-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:206) ~[javafx-controls-13-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-13-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-13-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-13-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-13-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3862) ~[javafx-graphics-13-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1849) ~[javafx-graphics-13-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2590) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299) ~[javafx-graphics-13-win.jar:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:942) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-13-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174) ~[javafx-graphics-13-win.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-08-11 22:35:11 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:39:21 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:39:27 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 
+2025-08-11 22:39:53 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:43:45 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:43:46 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 
+2025-08-11 22:50:05 INFO  com.triloco.ehrmachine.applicationManager.ApiManager - POST Request: http://147.79.66.20:9090/authenticate/auth/v1/doctor
+2025-08-11 22:50:08 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - POST Request failed with status: 401 UNAUTHORIZED
+2025-08-11 22:50:09 ERROR com.triloco.ehrmachine.applicationManager.ApiManager - Response Body: 

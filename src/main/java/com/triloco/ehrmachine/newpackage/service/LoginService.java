@@ -5,7 +5,9 @@ import com.triloco.ehrmachine.applicationManager.ApiManager;
 import com.triloco.ehrmachine.applicationManager.utils.ObjectEncryptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.triloco.ehrmachine.applicationManager.CacheManager;
+import com.triloco.ehrmachine.applicationManager.SessionManager;
 import com.triloco.ehrmachine.applicationManager.model.ApiResponse;
+import com.triloco.ehrmachine.applicationManager.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +17,6 @@ public class LoginService {
     private static LoginService instance;
     private static final ApiManager apiManager = ApiManager.getInstance();
     private static final ObjectMapper objectMapper = new ObjectMapper();
-
     private LoginService() {
     }
 
@@ -58,6 +59,12 @@ if (dataNode.isTextual()) {
     String dataAsString = dataNode.asText();
     //System.out.println("Data as string: " + dataAsString);
     CacheManager.put("user-token", dataAsString);
+    User user=new User();
+    user.setUserToken(dataAsString);
+    user.setUserType("DOCTOR");
+    user.setPassword("");
+    user.setId(Long.MIN_VALUE);
+    SessionManager.saveSession(user);
     return true;
 } 
             

@@ -7,7 +7,6 @@ import java.io.*;
 public class SessionManager {
     private static final String SESSION_FILE = "session.dat";
     private static User currentUser;
-
     static {
     File file = new File(SESSION_FILE);
     if (file.exists()) {
@@ -51,7 +50,7 @@ public class SessionManager {
         loadSessionFromFile();
     }
 
-    private static void loadSessionFromFile() {
+    public static void loadSessionFromFile() {
         File file = new File(SESSION_FILE);
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
@@ -71,15 +70,16 @@ public class SessionManager {
         }
     }
 
-    private static void saveSession(User user) {
+    public static void saveSession(User user) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(SESSION_FILE))) {
             oos.writeObject(user);
+            loadSessionFromFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void deleteSession() {
+    public static void deleteSession() {
         File file = new File(SESSION_FILE);
         if (file.exists()) {
             boolean deleted = file.delete();
