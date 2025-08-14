@@ -1,0 +1,127 @@
+/* Main colors */
+.root {
+    -fx-primary-color: #1E66D0;
+    -fx-secondary-color: #1EA061;
+    -fx-warning-color: #E0A106;
+    -fx-danger-color: #D93838;
+    -fx-info-color: #00BCD4;
+    -fx-light-gray: #f8f9fa;
+    -fx-dark-gray: #343a40;
+}
+
+/* Header styles */
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-color;
+    -fx-padding: 5 0 0 0;
+}
+
+.welcome-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-dark-gray;
+}
+
+/* Section titles */
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-dark-gray;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Stats cards */
+.stat-card {
+    -fx-border-color: derive(-fx-primary-color, 30%);
+    -fx-border-radius: 5;
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-min-width: 200;
+    -fx-pref-width: 200;
+}
+
+.stat-card-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.stat-card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.stat-card-note {
+    -fx-text-fill: derive(-fx-dark-gray, 40%);
+    -fx-font-size: 12px;
+}
+
+/* Table styles */
+.appointment-table {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: derive(-fx-primary-color, 80%);
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-padding: 0;
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14px;
+}
+
+/* Quick action buttons */
+.action-button {
+    -fx-border-color: -fx-primary-color;
+    -fx-text-fill: -fx-primary-color;
+    -fx-background-color: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: derive(-fx-primary-color, 90%);
+}
+
+/* Patient cards */
+.patient-card {
+    -fx-border-color: derive(-fx-dark-gray, 80%);
+    -fx-border-radius: 5;
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-min-width: 160;
+    -fx-pref-width: 160;
+}
+
+.patient-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-dark-gray;
+}
+
+.patient-visit {
+    -fx-text-fill: derive(-fx-dark-gray, 40%);
+    -fx-font-size: 12px;
+}
+
+.patient-button {
+    -fx-border-color: -fx-primary-color;
+    -fx-text-fill: -fx-primary-color;
+    -fx-background-color: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+
+.patient-button:hover {
+    -fx-background-color: derive(-fx-primary-color, 90%);
+}

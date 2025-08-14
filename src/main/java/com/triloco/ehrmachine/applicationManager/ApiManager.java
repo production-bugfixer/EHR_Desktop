@@ -26,7 +26,7 @@ public class ApiManager {
 
     private ApiManager() {
         this.restTemplate = new RestTemplate();
-        this.baseUrl = PropertiesLoader.get("baseUrl");
+        this.baseUrl = PropertiesLoader.get("baseApiUrl");
 
         RetryConfig config = RetryConfig.custom()
                 .maxAttempts(3)
@@ -69,7 +69,8 @@ public class ApiManager {
                 return response.getBody();
             } catch (HttpStatusCodeException ex) {
                 handleHttpException("GET", fullUrl, ex);
-                throw new Exception("GET failed: " + extractErrorBody(ex), ex);
+                //throw new Exception("GET failed: " + extractErrorBody(ex), ex);
+                return "";
             }
         });
 
@@ -104,7 +105,8 @@ public class ApiManager {
                 return response.getBody();
             } catch (HttpStatusCodeException ex) {
                 handleHttpException("POST", fullUrl, ex);
-                throw new Exception("POST failed: " + extractErrorBody(ex), ex);
+                //throw new Exception("POST failed: " + extractErrorBody(ex), ex);
+                return "";
             }
         });
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.triloco.ehrmachine.newpackage.controller.privateScreen.DashboardController"
+            
+            stylesheets="@/com/triloco/ehrmachine/styles/dashboard.css">
+
+    <!-- TOP SECTION WITH HEADER -->
+    <top>
+        <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #f8f9fa;">
+            <Label text="Doctor's Dashboard" styleClass="header-title"/>
+            <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+            <Separator style="-fx-padding: 0 0 5 0;"/>
+        </VBox>
+    </top>
+
+    <!-- MAIN CONTENT AREA -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <VBox fx:id="mainContainer" style="-fx-background-color: #f8f9fa;">
+                <!-- STATS CARDS SECTION -->
+                <VBox style="-fx-padding: 15 15 0 15;">
+                    <Label text="Practice Overview" styleClass="section-title"/>
+                    <FlowPane fx:id="statsContainer" alignment="CENTER" hgap="15" vgap="15" 
+                              style="-fx-padding: 10;" prefWrapLength="800"/>
+                </VBox>
+
+                <!-- APPOINTMENTS AND QUICK ACTIONS SECTION -->
+                <HBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 15;">
+                    <!-- APPOINTMENTS TABLE (70% width) -->
+                    <VBox HBox.hgrow="ALWAYS" style="-fx-max-width: 800;">
+                        <Label text="Today's Appointments" styleClass="section-title"/>
+                        <TableView fx:id="appointmentsTable" styleClass="appointment-table">
+                            <columns>
+                                <TableColumn fx:id="timeColumn" text="Time" styleClass="table-column" prefWidth="100"/>
+                                <TableColumn fx:id="patientColumn" text="Patient" styleClass="table-column" prefWidth="150"/>
+                                <TableColumn fx:id="reasonColumn" text="Reason" styleClass="table-column" prefWidth="250"/>
+                                <TableColumn fx:id="statusColumn" text="Status" styleClass="table-column" prefWidth="100"/>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </VBox>
+
+                    <!-- QUICK ACTIONS (30% width) -->
+                    <VBox style="-fx-min-width: 250; -fx-max-width: 300;">
+                        <Label text="Quick Actions" styleClass="section-title"/>
+                        <VBox fx:id="quickActionsContainer" spacing="10" style="-fx-padding: 5;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- RECENT PATIENTS SECTION -->
+                <VBox style="-fx-padding: 0 15 15 15;">
+                    <Label text="Recent Patients" styleClass="section-title"/>
+                    <FlowPane fx:id="recentPatientsContainer" alignment="CENTER" hgap="15" vgap="15" 
+                              style="-fx-padding: 10;" prefWrapLength="800"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
